@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Tiny Genie Shipping Label</title>
+
+<link rel="manifest" href="manifest.json">
+
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="app">
+
+<h2>Tiny Genie Label Generator</h2>
+
+<div class="form">
+
+<input id="name" placeholder="Customer Name">
+
+<textarea id="address" placeholder="Address"></textarea>
+
+<input id="landmark" placeholder="Landmark">
+
+<input id="city" placeholder="City">
+
+<input id="state" placeholder="State">
+
+<input id="pincode" placeholder="PIN Code">
+
+<input id="phone" placeholder="Mobile Number">
+
+
+<button onclick="generateLabel()">
+Generate Label
+</button>
+
+</div>
+
+
+<div id="label" class="label">
+
+<div class="brand">
+
+<img src="images/logo.png" class="logo">
+
+<div class="tagline">
+big smiles. tiny magic
+</div>
+
+</div>
+
+
+<div class="section">
+
+<div class="title">
+SHIP TO
+</div>
+
+<div id="customerName" class="customer-name"></div>
+
+<div id="customerAddress"></div>
+
+<div id="customerCity"></div>
+
+
+<div class="pin-box">
+
+<div>PIN CODE</div>
+
+<strong id="customerPin">
+</strong>
+
+</div>
+
+
+<div>
+Mobile:
+<span id="customerPhone"></span>
+</div>
+
+</div>
+
+
+<div class="section from">
+
+<div class="title">
+FROM
+</div>
+
+<strong>
+Tiny Genie
+</strong>
+
+<br>
+
+Your Address Here
+
+<br>
+
+Mobile: XXXXXXXXXX
+
+</div>
+
+
+
+<div class="terms">
+
+<strong>
+HANDLE WITH CARE
+</strong>
+
+<br><br>
+
+Unboxing video is mandatory for
+return, replacement or refund.
+
+</div>
+
+
+</div>
+
+
+<button class="print" onclick="window.print()">
+Print Label
+</button>
+
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
