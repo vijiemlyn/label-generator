@@ -1,0 +1,17 @@
+{
+  "name": "Tiny Genie Shipping Label",
+  "short_name": "Tiny Genie Label",
+  "description": "4x6 thermal shipping label generator for Tiny Genie",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#5bc3e8",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "images/logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
