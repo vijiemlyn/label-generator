@@ -48,3 +48,28 @@ function generateLabel() {
     });
 
 }
+async function downloadPDF() {
+
+    const { jsPDF } = window.jspdf;
+
+    const pdf = new jsPDF({
+        orientation: "portrait",
+        unit: "mm",
+        format: [150, 100]   // Height, Width = 4×6 inch
+    });
+
+    await pdf.html(document.getElementById("label"), {
+        x: 0,
+        y: 0,
+        width: 100,
+        windowWidth: document.getElementById("label").scrollWidth,
+        callback: function (pdf) {
+
+            const name = document.getElementById("name").value || "LABEL";
+            const pin = document.getElementById("pincode").value || "";
+
+            pdf.save(`${name.toUpperCase()}_${pin}.pdf`);
+        }
+    });
+
+}
