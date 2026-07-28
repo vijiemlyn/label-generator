@@ -13,7 +13,7 @@
 <link rel="stylesheet" href="style.css">
 
 </head>
-
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <body>
 
 <div class="app">
@@ -134,7 +134,9 @@ return, replacement or refund.
 <button class="print" onclick="window.print()">
 Print Label
 </button>
-
+<button class="print" onclick="downloadPDF()">
+    Download 4×6 PDF
+</button>
 
 </div>
 
