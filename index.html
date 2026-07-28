@@ -100,11 +100,15 @@ Tiny Genie
 
 <br>
 
-Your Address Here
+Tiny Genie,
+56, Arasu Asisriar Colony,
+Melakulam Road,
+KTC Nagar North,
+Tirunelveli - 627351.
 
 <br>
 
-Mobile: XXXXXXXXXX
+Mobile: 7598729594
 
 </div>
 
@@ -136,6 +140,18 @@ Print Label
 
 
 <script src="script.js"></script>
+<script>
 
+if ("serviceWorker" in navigator) {
+
+window.addEventListener("load", () => {
+
+navigator.serviceWorker.register("service-worker.js");
+
+});
+
+}
+
+</script>
 </body>
 </html>
