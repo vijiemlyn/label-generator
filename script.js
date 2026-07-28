@@ -49,27 +49,32 @@ function generateLabel() {
 
 }
 async function downloadPDF() {
-
+    // 1. Get the label element
+    const labelElement = document.getElementById("label");
+    
+    // 2. Convert the HTML to a high-resolution canvas using html2canvas
+    const canvas = await html2canvas(labelElement, {
+        scale: 4, // Higher scale = better print resolution
+        useCORS: true // Ensures images like your logo load correctly
+    });
+    
+    // 3. Convert the canvas to an image
+    const imgData = canvas.toDataURL("image/png");
+    
+    // 4. Initialize jsPDF with exact 4x6 inch dimensions
     const { jsPDF } = window.jspdf;
-
     const pdf = new jsPDF({
         orientation: "portrait",
-        unit: "mm",
-        format: [150, 100]   // Height, Width = 4×6 inch
+        unit: "in",
+        format: [4, 6] // Exactly 4x6 inches
     });
-
-    await pdf.html(document.getElementById("label"), {
-        x: 0,
-        y: 0,
-        width: 100,
-        windowWidth: document.getElementById("label").scrollWidth,
-        callback: function (pdf) {
-
-            const name = document.getElementById("name").value || "LABEL";
-            const pin = document.getElementById("pincode").value || "";
-
-            pdf.save(`${name.toUpperCase()}_${pin}.pdf`);
-        }
-    });
-
+    
+    // 5. Add the image to the PDF spanning the full 4x6 inches
+    pdf.addImage(imgData, 'PNG', 0, 0, 4, 6);
+    
+    // 6. Generate the filename and download
+    const name = document.getElementById("name").value || "LABEL";
+    const pin = document.getElementById("pincode").value || "";
+    
+    pdf.save(`${name.toUpperCase()}_${pin}.pdf`);
 }
